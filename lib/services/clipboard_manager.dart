@@ -69,7 +69,7 @@ class ClipboardManager {
     if (info) {
       if (clipboardNodes.length == 1) {
         final item = clipboardNodes.first;
-        InfoService.info('Item copied: ${item.displayName}');
+        InfoService.info('Item copied: ${item.displayName}', truncate: true);
       } else {
         InfoService.info('Items copied: ${clipboardNodes.length}');
       }
@@ -102,7 +102,7 @@ class ClipboardManager {
         return InfoService.info('Clipboard is empty');
       }
       treeTraverser.addChildToCurrent(TreeNode.textNode(systemClipboard), position: position);
-      InfoService.info('Pasted from system clipboard: $systemClipboard');
+      InfoService.info('Pasted from system clipboard: $systemClipboard', truncate: true);
       return;
     }
     if (markForCut) {
@@ -138,7 +138,7 @@ class ClipboardManager {
   void copyAsText(String text) {
     copyToSystemClipboard(text);
     clearClipboardNodes();
-    InfoService.info('Copied to clipboard: $text');
+    InfoService.info('Copied to clipboard: $text', truncate: true);
   }
 
   TreeNode buildLinkItem(TreeNode targetNode) {

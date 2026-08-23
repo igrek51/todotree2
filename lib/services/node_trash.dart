@@ -62,14 +62,14 @@ class NodeTrash {
         nnlinkTargetParent.insertAt(nnoriginalTargetPosition, nnlinkTarget);
       }
       browserController.remoteService.checkUnsavedRemoteChanges();
-      InfoService.info('Link & target restored: ${trashedNodes.first.second.name}');
+      InfoService.info('Link & target restored: ${trashedNodes.first.second.name}', truncate: true);
     } else if (trashedNodes.length == 1) {
       final pair = trashedNodes.first;
       final originalPosition = pair.first;
       final node = pair.second;
       browserController.treeTraverser.addChildToNode(parent, node, position: originalPosition);
       browserController.remoteService.checkUnsavedRemoteChanges();
-      InfoService.info('Node restored: ${node.name}');
+      InfoService.info('Node restored: ${node.name}', truncate: true);
     } else {
       for (final pair in trashedNodes) {
         browserController.treeTraverser.addChildToNode(parent, pair.second, position: pair.first);

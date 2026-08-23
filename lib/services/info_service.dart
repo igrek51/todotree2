@@ -6,13 +6,17 @@ final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey = GlobalKey<Scaffol
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class InfoService {
-  static void info(String message) {
+  static void info(String message, {bool truncate = false}) {
     logger.info('UI: $message');
     scaffoldMessengerKey.currentState?.removeCurrentSnackBar();
     scaffoldMessengerKey.currentState?.clearSnackBars();
     scaffoldMessengerKey.currentState?.showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Text(
+          message,
+          maxLines: truncate ? 1 : null,
+          overflow: truncate ? TextOverflow.ellipsis : null,
+        ),
         showCloseIcon: true,
         dismissDirection: DismissDirection.horizontal,
         duration: const Duration(seconds: 2),
@@ -20,13 +24,17 @@ class InfoService {
     );
   }
 
-  static void snackbarAction(String message, String actionLabel, VoidCallback action) {
+  static void snackbarAction(String message, String actionLabel, VoidCallback action, {bool truncate = false}) {
     logger.info('UI: $message');
     scaffoldMessengerKey.currentState?.removeCurrentSnackBar();
     scaffoldMessengerKey.currentState?.clearSnackBars();
     scaffoldMessengerKey.currentState?.showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Text(
+          message,
+          maxLines: truncate ? 1 : null,
+          overflow: truncate ? TextOverflow.ellipsis : null,
+        ),
         showCloseIcon: false,
         dismissDirection: DismissDirection.horizontal,
         duration: const Duration(seconds: 10),

@@ -78,7 +78,7 @@ class EditorController {
     editorState.editTextController.clear();
     editorState.notify();
     browserController.restoreScrollOffset();
-    InfoService.info('Saved: $newName');
+    InfoService.info('Saved: $newName', truncate: true);
   }
 
   void saveNewNode() {
@@ -95,7 +95,7 @@ class EditorController {
     editorState.editTextController.clear();
     editorState.notify();
     browserController.restoreScrollOffset();
-    InfoService.info('Added: $newName');
+    InfoService.info('Added: $newName', truncate: true);
   }
 
   void saveAndAddNext() {
@@ -112,13 +112,13 @@ class EditorController {
       editorState.editedNode?.name = newName;
       treeTraverser.focusNode = editorState.editedNode;
       nextPosition = (treeTraverser.getChildIndex(editorState.editedNode!) ?? 0) + 1;
-      InfoService.info('Saved: $newName');
+      InfoService.info('Saved: $newName', truncate: true);
     } else if (editorState.newItemPosition != null) {
       final newNode = TreeNode.textNode(newName);
       treeTraverser.addChildToCurrent(newNode, position: editorState.newItemPosition);
       nextPosition = (editorState.newItemPosition ?? 0) + 1;
       browserController.renderAll();
-      InfoService.info('Added: $newName');
+      InfoService.info('Added: $newName', truncate: true);
     }
 
     editorState.newItemPosition = nextPosition;
@@ -143,12 +143,12 @@ class EditorController {
       editorState.editedNode?.name = newName;
       treeTraverser.focusNode = editorState.editedNode;
       newParent = editorState.editedNode;
-      InfoService.info('Saved: $newName');
+      InfoService.info('Saved: $newName', truncate: true);
     } else if (editorState.newItemPosition != null) {
       final newNode = TreeNode.textNode(newName);
       treeTraverser.addChildToCurrent(newNode, position: editorState.newItemPosition);
       newParent = newNode;
-      InfoService.info('Added: $newName');
+      InfoService.info('Added: $newName', truncate: true);
     }
 
     if (newParent != null) {

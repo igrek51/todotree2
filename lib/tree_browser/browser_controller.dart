@@ -200,7 +200,7 @@ class BrowserController {
     undoOperation = undoCallback;
     renderItems();
     explosionIndicatorKey.currentState?.animate();
-    InfoService.snackbarAction('Removed: ${node.name}', 'UNDO', undoCallback);
+    InfoService.snackbarAction('Removed: ${node.name}', 'UNDO', undoCallback, truncate: true);
   }
 
   void removeMultipleNodes(List<int> sortedPositions) {
@@ -267,7 +267,7 @@ class BrowserController {
     undoOperation = undoCallback;
     renderItems();
     explosionIndicatorKey.currentState?.animate();
-    InfoService.snackbarAction('Link & target removed: ${link.name}', 'UNDO', undoCallback);
+    InfoService.snackbarAction('Link & target removed: ${link.name}', 'UNDO', undoCallback, truncate: true);
   }
 
   void runNodeMenuAction(String action, {TreeNode? node, int? position}) {
@@ -432,7 +432,7 @@ class BrowserController {
     }
     final randomNode = children[Random().nextInt(children.length)];
     await goIntoNode(randomNode);
-    InfoService.info('Entered random item: ${randomNode.name}');
+    InfoService.info('Entered random item: ${randomNode.name}', truncate: true);
   }
 
   Future<void> fetchRemoteNode(RemoteNode localNode) async {
