@@ -14,16 +14,15 @@ class TextFieldDialog {
         final TextEditingController controller = TextEditingController();
         controller.text = initialValue;
         return AlertDialog(
+          scrollable: true,
           title: Text(title),
-          content: SingleChildScrollView(
-            child: TextField(
-              controller: controller,
-              autofocus: true,
-              maxLines: null,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Value',
-              ),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            maxLines: null,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Value',
             ),
           ),
           actions: <Widget>[
@@ -55,16 +54,15 @@ class TextFieldDialog {
         final TextEditingController controller = TextEditingController();
         controller.text = '';
         return AlertDialog(
+          scrollable: true,
           title: Text(title),
-          content: SingleChildScrollView(
-            child: TextField(
-              controller: controller,
-              autofocus: true,
-              maxLines: null,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Value',
-              ),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            maxLines: null,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Value',
             ),
           ),
           actions: <Widget>[

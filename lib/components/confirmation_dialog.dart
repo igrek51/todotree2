@@ -35,6 +35,7 @@ class ConfirmationDialog {
         ));
 
         return AlertDialog(
+          scrollable: true,
           title: Text(title),
           content: Text(content),
           actions: actions,

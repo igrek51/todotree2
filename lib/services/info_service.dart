@@ -63,10 +63,9 @@ class InfoService {
               context: navigatorKey.currentContext!,
               builder: (BuildContext context) {
                 return AlertDialog(
+                  scrollable: true,
                   title: Text('Error Details'),
-                  content: SingleChildScrollView(
-                    child: Text(fullMessage),
-                  ),
+                  content: Text(fullMessage),
                   actions: <Widget>[
                     TextButton(
                       child: Text('CLOSE'),
