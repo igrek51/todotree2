@@ -99,11 +99,6 @@ class TreeStorage {
     }
   }
 
-  Future<File> _writeDbString(String content) async {
-    await writeDbString(content);
-    return await _localDbFile;
-  }
-
   Future<String> _readDbString(File file) async {
     try {
       if (!file.existsSync()) {
@@ -133,7 +128,6 @@ class TreeStorage {
         final bytes = fpickResult.files.single.bytes;
         if (bytes != null) {
           final content = String.fromCharCodes(bytes);
-          final node = YamlTreeDeserializer().deserializeTree(content);
           await app.treeTraverser.loadFromString(content);
           app.browserController.renderAll();
           InfoService.info('Tree loaded from uploaded file');

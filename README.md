@@ -1,7 +1,7 @@
 # ToDo Tree
 
 To-do tasks in a nested tree structure. Written in Flutter.
-For Android, iOS and Linux.
+For Android, iOS, Linux and Web.
 
 <div align="center">
   <img src="./android/app/src/main/res/drawable-xxhdpi/ic_launcher_foreground.png" />
@@ -22,6 +22,11 @@ make run-linux
 ```
 
 <img src="./docs/img/screenshots/desktop/screenshot.png"  height="600px"/>
+
+### Run on Web
+```sh
+make run-web
+```
 
 ### Run on Android device
 ```sh
