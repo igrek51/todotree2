@@ -5,6 +5,14 @@ Welcome, AI Agent! This guide will help you understand the architecture and conv
 ## Project Overview
 ToDo Tree is a Flutter application for managing tasks in a nested, unlimited tree structure. It supports Android, iOS, Linux, and Web.
 
+### Key Features
+- **Unlimited Nesting**: Recursive tree structure for deep task organization.
+- **Node Types**: Supports text nodes, links (shortcuts to other nodes), and remote nodes (synced via API).
+- **Batch Operations**: Support for multi-node selection, moving, and deletion.
+- **Drag-and-Drop**: Interactive reordering of nodes within the browser.
+- **Persistence**: YAML-based storage with local/external backup support and IndexedDB for Web.
+- **Synchronization**: Optional remote sync for nodes using a dedicated REST API.
+
 ## Core Architecture
 The project uses a custom dependency injection pattern and the `provider` package for state management.
 
